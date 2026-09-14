@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-ink font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-accent/20;
+  }
+  *:focus-visible {
+    outline: 2px solid #2F3E36;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-accent text-ivory px-6 py-3 text-sm tracking-wide transition-colors duration-200 hover:bg-accent-dark disabled:opacity-40 disabled:pointer-events-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-ink text-ink px-6 py-3 text-sm tracking-wide transition-colors duration-200 hover:bg-ink hover:text-ivory disabled:opacity-40 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 text-ink px-4 py-2 text-sm transition-colors duration-200 hover:text-accent;
+  }
+  .input-field {
+    @apply w-full border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-soft/50 focus:border-accent focus:outline-none transition-colors;
+  }
+  .label-field {
+    @apply block text-xs font-medium text-ink-soft mb-1.5;
+  }
+  .container-page {
+    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-10;
+  }
+}
+
+/* Simple line-clamp fallback (avoids extra plugin dependency) */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
